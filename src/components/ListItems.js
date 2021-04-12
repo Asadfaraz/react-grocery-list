@@ -4,8 +4,10 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 
 const ListItems = (props) => {
   const items = props.items;
+  const removeItem = props.removeItem;
   console.log(items);
 
+  // -----------------------------------------------------------------------------
   // ************** Returns *****************
   return (
     <div className={classes.main}>
@@ -20,7 +22,12 @@ const ListItems = (props) => {
                 <FaEdit className={classes.btnEdit} />
               </button>
               <button type="button">
-                <FaTrash className={classes.btnDelete} />
+                <FaTrash
+                  className={classes.btnDelete}
+                  onClick={() => {
+                    removeItem(id);
+                  }}
+                />
               </button>
             </div>
           </article>

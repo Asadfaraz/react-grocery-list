@@ -8,7 +8,8 @@ function App() {
   const [items, setItems] = useState([]);
   const [alert, setAlert] = useState({ show: false, type: "", value: "" });
   const [buttonSubmitValue, setButtonSubmitValue] = useState("Add Item");
-
+  const [isEdit, setIsEdit] = useState(false);
+  // -------------------------------------------------------------------------------------
   // Handling submit of input item form
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,11 +23,15 @@ function App() {
       };
       setItems([...items, newListofInputs]);
       setItemInput("");
+    } else if (itemInput && isEdit) {
+      // alert positive
+      alertFunction(true, "success", "Item Edited Successfully");
     } else {
-      alert("Enter any Item");
+      // alert negative
+      alertFunction(true, "danger", "Enter a Value");
     }
   };
-
+  // -------------------------------------------------------------------------------------
   // Setting alert function to decrease code
   const alertFunction = (show = false, type = "", value = "") => {
     let alertValue = {
@@ -37,10 +42,24 @@ function App() {
     setAlert(alertValue);
   };
 
+  // -------------------------------------------------------------------------------------
+  const removeItem = (id) => {
+    const newItems = items.filter((item) => {
+      return item.id != id;
+    });
+    setItems(newItems);
+    alertFunction(true, "danger", "Item Deleted...");
+  };
+
+  // ---------------------------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------
   // ***************** Returns ********************
   return (
     <div className="main">
-      {alert.show && <Alert alert={alert} disappear={alertFunction} />}
+      {alert.show && (
+        <Alert alert={alert} disappear={alertFunction} items={items} />
+      )}
       {/* {alert.show && alert.type == "danger" && <p>{alert.value}</p>} */}
 
       <h2>Grocery Bud</h2>
@@ -64,7 +83,7 @@ function App() {
       {/* IF I have items in list then display this section otherwise don't display it please... Thank you */}
       {items.length > 0 && (
         <section>
-          <ListItems items={items} />
+          <ListItems items={items} removeItem={removeItem} />
           <button
             type="button"
             className="clearBtn"

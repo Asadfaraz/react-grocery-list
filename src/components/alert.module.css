@@ -1,0 +1,20 @@
+.alertDiv {
+  padding: 10px;
+  letter-spacing: 2px;
+}
+/* .alertDiv p {
+  width: 70%;
+  margin: 0 auto;
+} */
+
+.green {
+  background-color: lightgreen;
+  width: 70%;
+  margin: 0 auto;
+}
+.red {
+  background-color: rgb(240, 109, 109);
+  width: 70%;
+  margin: 0 auto;
+  color: white;
+}
