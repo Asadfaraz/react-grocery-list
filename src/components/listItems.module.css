@@ -1,0 +1,43 @@
+.main {
+  padding: 10px 20px;
+}
+article {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+
+  padding: 5px 10px;
+  transition: 0.5s;
+}
+article:hover {
+  background-color: rgb(226, 244, 250);
+}
+.buttons button {
+  margin: 0 5px;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.btnEdit {
+  color: rgb(77, 238, 14);
+}
+.btnDelete {
+  color: rgb(243, 124, 124);
+}
+.clearBtn {
+  padding: 10px;
+  font-size: 17px;
+  border: none;
+  background: none;
+  outline: none;
+  letter-spacing: 1px;
+  color: rgb(243, 124, 124);
+  cursor: pointer;
+}
+.clearBtn:hover {
+  color: rgb(156, 19, 19);
+}

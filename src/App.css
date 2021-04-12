@@ -4,7 +4,12 @@ body {
 
 .main {
   width: 40%;
-  margin: 50px auto;
+  margin: 100px auto;
   background-color: white;
   text-align: center;
+  font-family: cursive;
+
+  padding: 20px 15px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px rgb(179, 189, 192);
 }

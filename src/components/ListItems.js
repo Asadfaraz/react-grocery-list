@@ -1,15 +1,25 @@
 import React from "react";
+import classes from "./listItems.module.css";
+import { FaEdit, FaTrash } from "react-icons/fa";
 
 const ListItems = () => {
   return (
-    <div>
+    <div className={classes.main}>
       <article>
         <p>Item 1</p>
-        <button type="button">Edit</button>
-        <button type="button">Delete</button>
+        <div className={classes.buttons}>
+          <button type="button">
+            <FaEdit className={classes.btnEdit} />
+          </button>
+          <button type="button">
+            <FaTrash className={classes.btnDelete} />
+          </button>
+        </div>
       </article>
 
-      <button type="button">Clear Items</button>
+      <button type="button" className={classes.clearBtn}>
+        Clear Items
+      </button>
     </div>
   );
 };
