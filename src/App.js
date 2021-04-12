@@ -1,27 +1,48 @@
 import "./App.css";
-import InputSection from "./components/InputSection";
+import Alert from "./components/Alert";
 import ListItems from "./components/ListItems";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function App() {
   const [itemInput, setItemInput] = useState("");
   const [items, setItems] = useState([]);
+  const [alert, setAlert] = useState({ show: false, type: "", value: "" });
+  const [buttonSubmitValue, setButtonSubmitValue] = useState("Add Item");
 
   // Handling submit of input item form
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(itemInput);
-    let newListofInputs = {
-      id: new Date().getTime().toString(),
-      title: itemInput,
+    // console.log(itemInput);
+    if (itemInput) {
+      alertFunction(true, "success", "Item Added Successfully");
+
+      let newListofInputs = {
+        id: new Date().getTime().toString(),
+        title: itemInput,
+      };
+      setItems([...items, newListofInputs]);
+      setItemInput("");
+    } else {
+      alert("Enter any Item");
+    }
+  };
+
+  // Setting alert function to decrease code
+  const alertFunction = (show = false, type = "", value = "") => {
+    let alertValue = {
+      show,
+      type,
+      value,
     };
-    setItems([...items, newListofInputs]);
-    setItemInput("");
+    setAlert(alertValue);
   };
 
   // ***************** Returns ********************
   return (
     <div className="main">
+      {alert.show && <Alert alert={alert} disappear={alertFunction} />}
+      {/* {alert.show && alert.type == "danger" && <p>{alert.value}</p>} */}
+
       <h2>Grocery Bud</h2>
 
       <section>
@@ -35,7 +56,7 @@ function App() {
             }}
           />
           <button type="button" onClick={handleSubmit}>
-            Add
+            {buttonSubmitValue}
           </button>
         </form>
       </section>
@@ -49,6 +70,7 @@ function App() {
             className="clearBtn"
             onClick={() => {
               setItems([]);
+              alertFunction(true, "danger", "List Cleared!!!");
             }}
           >
             Clear Items
