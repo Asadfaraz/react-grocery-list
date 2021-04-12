@@ -13,3 +13,47 @@ body {
   border-radius: 5px;
   box-shadow: 1px 1px 5px rgb(179, 189, 192);
 }
+
+form {
+  padding: 10px;
+  margin: 20px;
+  /* background-color: gray; */
+  text-align: start;
+}
+
+input {
+  width: 70%;
+  padding: 5px 10px;
+
+  border: none;
+  outline: none;
+  background-color: rgb(226, 244, 250);
+  font-size: 18px;
+}
+form button {
+  width: 100px;
+  padding: 5px;
+  background-color: rgb(169, 211, 245);
+  border: none;
+  outline: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+form button:hover {
+  background-color: cornflowerblue;
+  color: white;
+  transition: 0.8s;
+}
+.clearBtn {
+  padding: 10px;
+  font-size: 17px;
+  border: none;
+  background: none;
+  outline: none;
+  letter-spacing: 1px;
+  color: rgb(243, 124, 124);
+  cursor: pointer;
+}
+.clearBtn:hover {
+  color: rgb(156, 19, 19);
+}

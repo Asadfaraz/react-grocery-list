@@ -28,16 +28,3 @@ article:hover {
 .btnDelete {
   color: rgb(243, 124, 124);
 }
-.clearBtn {
-  padding: 10px;
-  font-size: 17px;
-  border: none;
-  background: none;
-  outline: none;
-  letter-spacing: 1px;
-  color: rgb(243, 124, 124);
-  cursor: pointer;
-}
-.clearBtn:hover {
-  color: rgb(156, 19, 19);
-}
