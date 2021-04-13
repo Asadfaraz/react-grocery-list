@@ -9,3 +9,7 @@ the data will not loose.
 All of the app has alert system. For example if a user add an item he will get
 an alert of success and that alert will disappear after some time. Same alert
 will displayed for deleting an editin items of the list.
+
+This project is a complete CRUD operations in React.js.
+
+**Live version link:** https://grocery-list-asad.netlify.app/

@@ -5,7 +5,9 @@ import React, { useState, useEffect } from "react";
 
 function App() {
   const [itemInput, setItemInput] = useState("");
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(
+    JSON.parse(localStorage.getItem("grocery")) || []
+  );
   const [alert, setAlert] = useState({ show: false, type: "", value: "" });
   const [isEdit, setIsEdit] = useState(false);
   const [editId, setEditId] = useState(null);
@@ -38,6 +40,7 @@ function App() {
 
       // _______________________________________
     } else {
+      // successfully adding new item to list
       let newListofInputs = {
         id: new Date().getTime().toString(),
         title: itemInput,
@@ -78,6 +81,10 @@ function App() {
     setEditId(id);
   };
 
+  // inserting item into local storage
+  useEffect(() => {
+    localStorage.setItem("grocery", JSON.stringify(items));
+  }, [items]);
   // ---------------------------------------------------------------------------------------------
   // ---------------------------------------------------------------------------------------------
   // ---------------------------------------------------------------------------------------------
